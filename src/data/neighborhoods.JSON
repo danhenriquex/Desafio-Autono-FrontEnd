@@ -1,0 +1,418 @@
+{
+  "neighborhoods": [
+    {
+      "zone": 1,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Aeroclube"
+        },
+        {
+          "id": 2,
+          "name": "Bessa"
+        },
+        {
+          "id": 3,
+          "name": "Jardim Oceania"
+        },
+        {
+          "id": 4,
+          "name": "Manaíra"
+        },
+        {
+          "id": 5,
+          "name": "Jardim Luna"
+        },
+        {
+          "id": 6,
+          "name": "Brisamar"
+        },
+        {
+          "id": 7,
+          "name": "João Agripino"
+        },
+        {
+          "id": 8,
+          "name": "Bairro São José"
+        }
+      ]
+    },
+    {
+      "zone": 2,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Penha"
+        },
+        {
+          "id": 2,
+          "name": "Quadramares"
+        },
+        {
+          "id": 3,
+          "name": "Altiplano"
+        },
+        {
+          "id": 4,
+          "name": "Cabo Branco"
+        },
+        {
+          "id": 5,
+          "name": "Tambaú"
+        },
+        {
+          "id": 6,
+          "name": "Seixas"
+        }
+      ]
+    },
+    {
+      "zone": 3,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Mangabeira 1"
+        },
+        {
+          "id": 2,
+          "name": "Mangabeira 2"
+        },
+        {
+          "id": 3,
+          "name": "Mangabeira 3"
+        },
+        {
+          "id": 4,
+          "name": "Mangabeira 4"
+        },
+        {
+          "id": 5,
+          "name": "Mangabeira 5"
+        },
+        {
+          "id": 6,
+          "name": "Mangabeira 6"
+        },
+        {
+          "id": 7,
+          "name": "Mangabeira 7"
+        },
+        {
+          "id": 8,
+          "name": "Cidade Verde 1"
+        },
+        {
+          "id": 9,
+          "name": "Cidade Verde 2"
+        }
+      ]
+    },
+    {
+      "zone": 4,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Valentina 1"
+        },
+        {
+          "id": 2,
+          "name": "Valentina 2"
+        },
+        {
+          "id": 3,
+          "name": "Paratibe"
+        },
+        {
+          "id": 4,
+          "name": "Cuiá"
+        },
+        {
+          "id": 5,
+          "name": "Muçumagro"
+        }
+      ]
+    },
+    {
+      "zone": 5,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "José Américo"
+        },
+        {
+          "id": 2,
+          "name": "Água Fria"
+        },
+        {
+          "id": 3,
+          "name": "Cidade dos Colibris 1"
+        },
+        {
+          "id": 4,
+          "name": "Cidade dos Colibris 2"
+        },
+        {
+          "id": 5,
+          "name": "João Paulo 2"
+        },
+        {
+          "id": 6,
+          "name": "Ernani Sátiro"
+        },
+        {
+          "id": 7,
+          "name": "Esplanada"
+        },
+        {
+          "id": 8,
+          "name": "Costa e Silva"
+        },
+        {
+          "id": 9,
+          "name": "Grotão"
+        },
+        {
+          "id": 10,
+          "name": "Geisel"
+        },
+        {
+          "id": 11,
+          "name": "Funcionários 2"
+        },
+        {
+          "id": 12,
+          "name": "Funcionários 3"
+        },
+        {
+          "id": 13,
+          "name": "Funcionários 4"
+        }
+      ]
+    },
+    {
+      "zone": 6,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Bairro das Indústrias"
+        },
+        {
+          "id": 2,
+          "name": "Distrito Industrial"
+        },
+        {
+          "id": 3,
+          "name": "Jardim Veneza"
+        },
+        {
+          "id": 4,
+          "name": "Mumbaba"
+        },
+        {
+          "id": 5,
+          "name": "Mussuré"
+        }
+      ]
+    },
+    {
+      "zone": 7,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Cristo"
+        },
+        {
+          "id": 2,
+          "name": "Jaguaribe"
+        },
+        {
+          "id": 3,
+          "name": "Rangel"
+        }
+      ]
+    },
+    {
+      "zone": 8,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Cruz das Armas"
+        },
+        {
+          "id": 2,
+          "name": "Funcionários 1"
+        },
+        {
+          "id": 3,
+          "name": "Jardim Planalto"
+        },
+        {
+          "id": 4,
+          "name": "Oitizeiro"
+        }
+      ]
+    },
+    {
+      "zone": 9,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Alto do Mateus"
+        },
+        {
+          "id": 2,
+          "name": "Ilha do Bispo"
+        },
+        {
+          "id": 3,
+          "name": "Bairro dos Novais"
+        },
+        {
+          "id": 4,
+          "name": "Centro Histórico"
+        },
+        {
+          "id": 5,
+          "name": "Varadouro"
+        }
+      ]
+    },
+    {
+      "zone": 10,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Roger"
+        },
+        {
+          "id": 2,
+          "name": "Tambiá"
+        },
+        {
+          "id": 3,
+          "name": "Treze de Maio"
+        }
+      ]
+    },
+    {
+      "zone": 11,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Mandacarú"
+        },
+        {
+          "id": 2,
+          "name": "Pedro Gondim"
+        },
+        {
+          "id": 3,
+          "name": "Bairro dos Ipês 1"
+        },
+        {
+          "id": 4,
+          "name": "Bairro dos Ipês 2"
+        },
+        {
+          "id": 5,
+          "name": "Bairro dos Estados"
+        },
+        {
+          "id": 6,
+          "name": "Padre Zé"
+        }
+      ]
+    },
+    {
+      "zone": 12,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Gramame"
+        },
+        {
+          "id": 2,
+          "name": "Engenho Velho"
+        },
+        {
+          "id": 3,
+          "name": "Ponta de Gramame"
+        },
+        {
+          "id": 4,
+          "name": "Colinas do Sul 1"
+        },
+        {
+          "id": 5,
+          "name": "Colinas do Sul 2"
+        },
+        {
+          "id": 6,
+          "name": "Gervásio Maia"
+        }
+      ]
+    },
+    {
+      "zone": 13,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Centro"
+        },
+        {
+          "id": 2,
+          "name": "Torre"
+        },
+        {
+          "id": 3,
+          "name": "Tambauzinho"
+        },
+        {
+          "id": 4,
+          "name": "Expedicionários"
+        },
+        {
+          "id": 5,
+          "name": "Miramar"
+        }
+      ]
+    },
+    {
+      "zone": 14,
+      "neighborhood": [
+        {
+          "id": 1,
+          "name": "Castelo Branco 1"
+        },
+        {
+          "id": 2,
+          "name": "Castelo Branco 2"
+        },
+        {
+          "id": 3,
+          "name": "Castelo Branco 3"
+        },
+        {
+          "id": 4,
+          "name": "Bancários"
+        },
+        {
+          "id": 5,
+          "name": "Anatólia"
+        },
+        {
+          "id": 6,
+          "name": "Jardim São Paulo"
+        },
+        {
+          "id": 7,
+          "name": "Jardim Cidade Universitária"
+        },
+        {
+          "id": 8,
+          "name": "Colibris 2"
+        }
+      ]
+    }
+  ]
+}
