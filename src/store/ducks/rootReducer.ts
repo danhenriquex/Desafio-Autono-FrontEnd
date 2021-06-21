@@ -1,7 +1,18 @@
 import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import user from './user';
+import favorites from './favorites/reducer';
 
-export default combineReducers({
-  user,
+export const rootReducer = combineReducers({
+  favorites,
 });
+
+const persistConfig = {
+  key: 'Books',
+  storage,
+  blacklist: [],
+  transforms: [],
+};
+
+export default persistReducer(persistConfig, rootReducer);
