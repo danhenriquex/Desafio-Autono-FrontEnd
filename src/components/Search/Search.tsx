@@ -1,41 +1,22 @@
 import { Button } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import TextField from '@material-ui/core/TextField';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { BookApiInterface } from '../../models/interface';
 import api from '../../services/book';
-import BookReviewCard from '../Cards/Cards';
+import { iStore } from '../../store';
+import Filter from '../Filter/Filter';
 import Header from '../Header/Header';
+import NewCards from '../NewCards/NewCards';
+import Pagination from '../Pagination/Pagination';
 import {
   Container,
   Fields,
+  Footer,
   GridCards,
   InputSearch,
+  Loading,
 } from './styles/StyledSearch';
-import Pagination from '../Pagination/Pagination';
-import NewCards from '../NewCards/NewCards';
-import { useDispatch, useSelector } from 'react-redux';
-import { iStore } from '../../store';
-import Filter from '../Filter/Filter';
-
-// AIzaSyC4p4aXr10NrjqJrOYk354TKI3HGlvE-qA
-// O8W-tBqHA5EC
-
-interface BookApiInterface {
-  id?: string;
-  selfLink: string;
-  volumeInfo?: {
-    title: string;
-    subtitle: string;
-    publishedDate: string;
-    authors: [];
-    imageLinks: { thumbnail: string; smallThumbnail: string };
-    description: string;
-    infoLink: string;
-  };
-}
-
 export interface Book {
   book: BookApiInterface[];
   totalItems?: number;
@@ -47,14 +28,14 @@ const Search: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [pagination, setPagination] = useState(0);
 
-  const fetchBooks = async (pag: number) => {
-    // * Requisição para pesquisar os livros
-    // if (query === '') {
-    //   return;
-    // }
+  const arrayBooks = useSelector((store: iStore) => store.favorites);
 
+  // * Requisição para pesquisar os livros
+  const fetchBooks = useCallback(async () => {
     setLoading(prevState => !prevState);
-    const response = await api.get(`${query}&startIndex=${pag}&maxResults=20`);
+    const response = await api.get(
+      `${query}&startIndex=${pagination}&maxResults=20`,
+    );
 
     setData({
       book: response?.data?.items,
@@ -64,84 +45,85 @@ const Search: React.FC = () => {
     setLoading(prevState => !prevState);
 
     console.log('###resposta: ', response.data);
-    console.log('##loading: ', loading);
-  };
+  }, [query, pagination]);
 
   // * Paginação
 
+  useEffect(() => {
+    fetchBooks();
+  }, [pagination]);
+
   const PaginationCrement = () => {
-    if (pagination + 40 > data?.totalItems!) {
+    if (pagination + 20 > data?.totalItems!) {
       return;
     }
-    setPagination(prevState => prevState + 40);
-    fetchBooks(pagination + 40);
+
+    setPagination(prevState => prevState + 20);
   };
 
   const PaginationDecrement = () => {
-    console.log('###valor do pagination: ', pagination);
-    if (pagination === 0) {
+    if (pagination - 20 < 0) {
       return;
     }
 
-    setPagination(prevState => prevState - 40);
-    fetchBooks(pagination - 40);
+    setPagination(prevState => prevState - 20);
   };
 
   return (
     <Container>
       <Header />
       <Fields>
-        <InputSearch>
-          <TextField
-            id="filled-basic"
-            label="Pesquise seu livro"
-            variant="filled"
-            onChange={e => setQuery(e.target.value)}
-            autoFocus
-            style={{ width: '510px', borderRadius: '15px' }}
-          />
-        </InputSearch>
-        <Filter />
+        <InputSearch
+          placeholder="Pesquise seu livro"
+          onChange={e => setQuery(e.target.value)}
+          autoFocus
+        />
         {loading ? (
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
+          <Loading>
             <CircularProgress />
-          </div>
+          </Loading>
         ) : (
           <>
             <Button
-              variant="outlined"
-              color="primary"
+              variant="contained"
               type="submit"
-              onClick={() => fetchBooks(pagination)}
-              style={{ height: '50px', width: '250px' }}
+              onClick={() => fetchBooks()}
+              style={{
+                height: '50px',
+                width: '250px',
+                background: '#EE8C6A ',
+                borderRadius: '6px',
+              }}
             >
               Pesquisar
             </Button>
-            {data?.book.length! > 0 && (
-              <div style={{ width: '100px' }}>
-                <Pagination
-                  crement={PaginationCrement}
-                  decrement={PaginationDecrement}
-                />
-              </div>
-            )}
+            {data?.book.length! > 0 && <div style={{ width: '100px' }}></div>}
           </>
         )}
       </Fields>
-      <GridCards>
-        {data?.book &&
-          data?.book.map(item => (
-            <div key={item.id}>
-              <NewCards Books={item} />
-            </div>
-          ))}
-      </GridCards>
+      <Footer>
+        {!loading && (
+          <Pagination
+            className="pagination"
+            crement={PaginationCrement}
+            decrement={PaginationDecrement}
+          />
+        )}
+        <GridCards>
+          {data?.book &&
+            data?.book.map(item => (
+              <div key={item.id}>
+                <NewCards
+                  Books={item}
+                  isFavorite={
+                    arrayBooks.favorites.filter(book => book.id === item.id)
+                      .length === 0
+                  }
+                />
+              </div>
+            ))}
+        </GridCards>
+      </Footer>
     </Container>
   );
 };

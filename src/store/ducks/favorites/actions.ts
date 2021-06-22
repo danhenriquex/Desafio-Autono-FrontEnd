@@ -1,11 +1,9 @@
-import { Action } from 'redux';
-import { FavoriteTypes } from './types';
+import { BookApiInterface } from '../../../models/interface';
 import {
   iActionAddFavorite,
-  iActionRemoveFavorite,
-  FavoriteState,
+  iActionRemoveFavorite
 } from './interface';
-import { BookApiInterface } from '../../../models/interface';
+import { FavoriteTypes } from './types';
 
 export const AddFavorite = (params: BookApiInterface): iActionAddFavorite => ({
   type: FavoriteTypes.ADD_FAVORITE,

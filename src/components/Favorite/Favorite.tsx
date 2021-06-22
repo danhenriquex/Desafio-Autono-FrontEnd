@@ -1,7 +1,6 @@
-import { TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import store, { iStore } from '../../store';
+import { iStore } from '../../store';
 import Header from '../Header/Header';
 import NewCards from '../NewCards/NewCards';
 import { Container, GridCards, InputSearch } from './styles/StyledFavorite';
@@ -13,16 +12,11 @@ const Favorite: React.FC = () => {
   return (
     <Container>
       <Header />
-      <InputSearch>
-        <TextField
-          id="filled-basic"
-          label="Pesquise seu livro"
-          variant="filled"
-          onChange={e => setQuery(e.target.value)}
-          autoFocus
-          style={{ width: '510px', borderRadius: '15px' }}
-        />
-      </InputSearch>
+      <InputSearch
+        placeholder="Pesquise seu livro"
+        onChange={e => setQuery(e.target.value)}
+        autoFocus
+      />
       <GridCards>
         {arrayBooks.favorites
           .filter(item =>

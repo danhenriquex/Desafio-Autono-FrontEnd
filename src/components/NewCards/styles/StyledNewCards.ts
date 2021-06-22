@@ -20,22 +20,23 @@ export const Container = styled.div`
 export const Card = styled.div`
   position: relative;
   max-width: 300px;
-  height: 200px;
+  height: 450px;
   width: 420px;
   padding-top: 30px;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); */
+  border: 1px solid gray;
   transition: 0.3s ease-in-out;
 
-  h2,
+  /* h2,
   p,
   FavoriteIcon {
     opacity: 0;
-  }
-
-  &:hover {
+  } */
+  /* &:hover {
     height: 440px;
     width: 420px;
     h2,
@@ -44,7 +45,7 @@ export const Card = styled.div`
       opacity: 1;
       transition-delay: 0.3s;
     }
-  }
+  } */
 `;
 
 export const Img = styled.div`
@@ -54,9 +55,10 @@ export const Img = styled.div`
   justify-content: center;
   width: 260px;
   height: 260px;
-  top: -60px;
+  /* top: -60px; */
   left: 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); */
+  /* border: 1px solid gray; */
 
   img {
     max-width: 100%;

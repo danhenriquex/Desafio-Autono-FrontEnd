@@ -1,30 +1,10 @@
 import React from 'react';
 import { Modal, ModalBody } from 'react-bootstrap';
-
-interface BookApiInterface {
-  id?: string;
-  selfLink: string;
-  volumeInfo?: {
-    title: string;
-    subtitle: string;
-    publishedDate: string;
-    authors: [];
-    imageLinks: { thumbnail: string; smallThumbnail: string };
-    description: string;
-    infoLink: string;
-  };
-}
+import { BookApiInterface } from '../../models/interface';
 
 interface ModalProps {
   show: boolean;
   handleClose(): any;
-  // title: string;
-  // authors?: string[];
-  // thumbnail?: string;
-  // description: string;
-  // publishedDate: string;
-  // categories?: string[];
-  // publisher?: string;
   item: BookApiInterface;
 }
 
@@ -39,8 +19,16 @@ const ModalDetails: React.FC<ModalProps> = ({
         <Modal.Title>{item.volumeInfo?.title}</Modal.Title>
       </Modal.Header>
       <ModalBody>
-        <img src={item.volumeInfo?.imageLinks.thumbnail} alt="Book "></img>
-        <p>{item.volumeInfo?.description}</p>
+        <img
+          src={
+            item.volumeInfo?.imageLinks?.thumbnail ||
+            'http://centrodametropole.fflch.usp.br/sites/centrodametropole.fflch.usp.br/files/user_files/livros/imagem/capa-no-book-cover.png'
+          }
+          alt="Book "
+        ></img>
+        <p>{item.volumeInfo?.description || 'Descrição não disponível'}</p>
+        <p>Autores: {item.volumeInfo?.authors || 'Autor não disponível'}</p>
+        <p>{item.volumeInfo?.subtitle}</p>
       </ModalBody>
       <Modal.Footer>
         Publicado em : {item.volumeInfo?.publishedDate}

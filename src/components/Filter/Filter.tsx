@@ -5,18 +5,25 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import api from '../../services/book';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       backgroundColor: theme.palette.background.paper,
+      height: 50,
+      borderRadius: 30,
     },
   }),
 );
 
-const options = ['', 'Adventure', 'Computers', 'Novel'];
+interface ownProps {
+  setFilter: Function;
+}
 
-const Filter: React.FC = () => {
+const options = ['Filtros', 'Adventure', 'Computers', 'Novel'];
+
+const Filter: React.FC<ownProps> = ({ setFilter }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -25,17 +32,26 @@ const Filter: React.FC = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuItemClick = (
+  const handleMenuItemClick = async (
     event: React.MouseEvent<HTMLElement>,
     index: number,
   ) => {
     setSelectedIndex(index);
+
+    const response = await api.get(`subject:${options[index]}`);
+    console.log('response: ', response.data);
+    setFilter(response.data?.items);
     setAnchorEl(null);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  setFilter((prevState: any) => {
+    console.log('RESULTADO DA REQUISIÇÃO: ', prevState);
+    return prevState;
+  });
 
   return (
     <div className={classes.root}>
@@ -54,7 +70,7 @@ const Filter: React.FC = () => {
               justifyContent: 'center',
               flexDirection: 'column',
             }}
-            primary="Filtre sua pesquisa"
+            primary={options[selectedIndex]}
             secondary={options[selectedIndex]}
           />
         </ListItem>

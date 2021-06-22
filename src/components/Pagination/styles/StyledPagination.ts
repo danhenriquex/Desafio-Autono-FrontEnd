@@ -6,19 +6,20 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 `;
 
 export const Crement = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 5vh;
   width: 100%;
   cursor: pointer;
   background-color: #ddd;
   border-radius: 10px;
   &:hover {
-    background-color: #7936ff;
+    background-color: #893e00;
   }
 `;
 
@@ -26,12 +27,12 @@ export const Decrement = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 5vh;
   width: 100%;
   cursor: pointer;
   background-color: #ddd;
   border-radius: 10px;
   &:hover {
-    background-color: #7936ff;
+    background-color: #893e00;
   }
 `;

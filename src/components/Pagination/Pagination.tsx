@@ -6,11 +6,12 @@ import { Crement, Decrement, Container } from './styles/StyledPagination';
 interface ownProps {
   crement: () => any;
   decrement: () => any;
+  className?: string;
 }
 
-const Pagination: React.FC<ownProps> = ({ crement, decrement }) => {
+const Pagination: React.FC<ownProps> = ({ crement, decrement, className }) => {
   return (
-    <Container>
+    <Container className={className}>
       <Decrement onClick={decrement}>
         <ArrowBackIosIcon />
       </Decrement>

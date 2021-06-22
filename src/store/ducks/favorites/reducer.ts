@@ -1,7 +1,6 @@
-import { Reducer } from 'redux';
-import { FavoriteTypes } from './types';
-import { FavoriteState } from './interface';
 import { FavoritesActions } from './actions';
+import { FavoriteState } from './interface';
+import { FavoriteTypes } from './types';
 
 const INITIAL_STATE: FavoriteState = {
   favorites: [],

@@ -26,9 +26,12 @@ export const GridCards = styled.div`
   }
 `;
 
-export const InputSearch = styled.div`
+export const InputSearch = styled.input`
   display: flex;
-  width: 100%;
+  width: 361px;
+  height: 50px;
   align-items: center;
   justify-content: center;
+  border-radius: 30px;
+  text-align: center;
 `;

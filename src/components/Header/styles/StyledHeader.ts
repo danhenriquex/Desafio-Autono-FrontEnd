@@ -1,9 +1,13 @@
 import styled from 'styled-components';
+import image from '../../../assets/libraryImage.jpg';
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: url(${image});
+
+  background-size: 100% 100%;
 `;
 
 export const Options = styled.div`
@@ -21,13 +25,13 @@ export const Search = styled.button`
   height: 50px;
   margin: 10px 10px;
   border-radius: 13px;
-  border: 1px solid #2e0089;
+  border: 1px solid #d6670a;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
-    background-color: #7936ff;
+    background-color: #893e00;
     color: white;
   }
 `;
@@ -37,13 +41,13 @@ export const Favorite = styled.button`
   height: 50px;
   margin: 10px 10px;
   border-radius: 13px;
-  border: 1px solid #2e0089;
+  border: 1px solid #d6670a;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
-    background-color: #7936ff;
+    background-color: #893e00;
     color: white;
   }
 `;

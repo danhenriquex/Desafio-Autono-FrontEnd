@@ -1,43 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import {
-  Container,
-  Card,
-  Img,
-  Content,
-  Information,
-  // Div,
-} from './styles/StyledNewCards';
-import StarOutlineIcon from '@material-ui/icons/StarOutline';
-import StarIcon from '@material-ui/icons/Star';
+import { Button } from '@material-ui/core';
+import ClearIcon from '@material-ui/icons/Clear';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { FavoriteTypes } from '../../store/ducks/favorites/types';
 import ModalDetails from '../Modal/Modal';
-import { Button } from '@material-ui/core';
-import ClearIcon from '@material-ui/icons/Clear';
-
-interface BookApiInterface {
-  id?: string;
-  selfLink: string;
-  volumeInfo?: {
-    title: string;
-    subtitle: string;
-    publishedDate: string;
-    authors: [];
-    imageLinks: { thumbnail: string; smallThumbnail: string };
-    description: string;
-    infoLink: string;
-  };
-}
+import { Card, Container, Img, Information } from './styles/StyledNewCards';
+import {
+  BookApiInterface,
+  SpecificBookApiInterface,
+} from '../../models/interface';
 
 export interface ownProps {
   Books: BookApiInterface;
   favoriteState?: boolean;
+  isFavorite?: boolean;
 }
 
 const NewCards: React.FC<ownProps> = React.memo(
-  ({ Books, favoriteState }): JSX.Element => {
-    const [favorite, setFavorite] = useState(true);
+  ({ Books, favoriteState, isFavorite }): JSX.Element => {
+    const [favorite, setFavorite] = useState(isFavorite);
     const [state, setState] = useState(false);
     const dispatch = useDispatch();
 
@@ -54,7 +36,7 @@ const NewCards: React.FC<ownProps> = React.memo(
     function removeFavorite(id: string) {
       dispatch({
         type: FavoriteTypes.REMOVE_FAVORITE,
-        payload: Books.id,
+        payload: id,
       });
       setFavorite(true);
     }
@@ -76,6 +58,7 @@ const NewCards: React.FC<ownProps> = React.memo(
                 Books.volumeInfo?.imageLinks?.thumbnail ||
                 'http://centrodametropole.fflch.usp.br/sites/centrodametropole.fflch.usp.br/files/user_files/livros/imagem/capa-no-book-cover.png'
               }
+              alt="books"
             />
           </Img>
           <Information>

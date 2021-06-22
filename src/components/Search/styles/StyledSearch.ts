@@ -26,6 +26,15 @@ export const GridCards = styled.div`
   width: 100%;
   flex-direction: column;
 
+  @media only screen and (max-width: 1430px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
   @media only screen and (max-width: 1198px) {
     display: block;
     flex-direction: column;
@@ -35,11 +44,14 @@ export const GridCards = styled.div`
   }
 `;
 
-export const InputSearch = styled.div`
+export const InputSearch = styled.input`
   display: flex;
-  width: 100%;
+  width: 361px;
+  height: 50px;
   align-items: center;
   justify-content: center;
+  border-radius: 30px;
+  text-align: center;
 `;
 
 export const Fields = styled.form`
@@ -51,4 +63,27 @@ export const Fields = styled.form`
   width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
+`;
+
+export const Footer = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+
+  .pagination {
+    width: 100px;
+    @media only screen and (max-width: 1198px) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+`;
+
+export const Loading = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 105px;
 `;
