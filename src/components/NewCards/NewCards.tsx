@@ -3,13 +3,10 @@ import ClearIcon from '@material-ui/icons/Clear';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { BookApiInterface } from '../../models/interface';
 import { FavoriteTypes } from '../../store/ducks/favorites/types';
 import ModalDetails from '../Modal/Modal';
 import { Card, Container, Img, Information } from './styles/StyledNewCards';
-import {
-  BookApiInterface,
-  SpecificBookApiInterface,
-} from '../../models/interface';
 
 export interface ownProps {
   Books: BookApiInterface;

@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { BookApiInterface } from '../../models/interface';
 import api from '../../services/book';
 import { iStore } from '../../store';
-import Filter from '../Filter/Filter';
 import Header from '../Header/Header';
 import NewCards from '../NewCards/NewCards';
 import Pagination from '../Pagination/Pagination';
