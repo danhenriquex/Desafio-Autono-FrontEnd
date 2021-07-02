@@ -9,7 +9,7 @@ export const Container = styled.div`
   gap: 10px;
 `;
 
-export const Crement = styled.div`
+export const Increment = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

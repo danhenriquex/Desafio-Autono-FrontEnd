@@ -16,7 +16,7 @@ import {
   InputSearch,
   Loading,
 } from './styles/StyledSearch';
-export interface Book {
+interface Book {
   book: BookApiInterface[];
   totalItems?: number;
 }
@@ -32,18 +32,21 @@ const Search: React.FC = () => {
   // * Requisição para pesquisar os livros
   const fetchBooks = useCallback(async () => {
     setLoading(prevState => !prevState);
-    const response = await api.get(
-      `${query}&startIndex=${pagination}&maxResults=20`,
-    );
+    const response: any = await api
+      .get(`${query}&startIndex=${pagination}&maxResults=20`)
+      .then(res => {
+        if (res.status === 200) {
+          return res;
+        }
+      })
+      .catch(err => alert('Não foi possível pesquisar os livros.'));
 
     setData({
-      book: response?.data?.items,
+      book: response.data?.items,
       totalItems: response.data?.totalItems,
     });
 
     setLoading(prevState => !prevState);
-
-    console.log('###resposta: ', response.data);
   }, [query, pagination]);
 
   // * Paginação
@@ -52,8 +55,8 @@ const Search: React.FC = () => {
     fetchBooks();
   }, [pagination]);
 
-  const PaginationCrement = () => {
-    if (pagination + 20 > data?.totalItems!) {
+  const PaginationIncrement = () => {
+    if (pagination + 20 >= data?.totalItems!) {
       return;
     }
 
@@ -96,7 +99,9 @@ const Search: React.FC = () => {
             >
               Pesquisar
             </Button>
-            {data?.book.length! > 0 && <div style={{ width: '100px' }}></div>}
+            {data?.book !== undefined && data?.book.length > 0 && (
+              <div style={{ width: '100px' }}></div>
+            )}
           </>
         )}
       </Fields>
@@ -104,7 +109,7 @@ const Search: React.FC = () => {
         {!loading && (
           <Pagination
             className="pagination"
-            crement={PaginationCrement}
+            increment={PaginationIncrement}
             decrement={PaginationDecrement}
           />
         )}
